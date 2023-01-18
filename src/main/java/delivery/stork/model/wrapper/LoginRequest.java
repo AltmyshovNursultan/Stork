@@ -1,2 +1,9 @@
-package delivery.stork.model.dto.wrapper;public class LoginRequest {
+package delivery.stork.model.wrapper;
+
+import lombok.Data;
+
+@Data
+public class LoginRequest {
+    private String email;
+    private String password;
 }

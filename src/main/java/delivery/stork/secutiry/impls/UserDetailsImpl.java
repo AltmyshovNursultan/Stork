@@ -1,4 +1,4 @@
-package delivery.stork.secutiry;
+package delivery.stork.secutiry.impls;
 
 import delivery.stork.model.entity.User;
 import lombok.AccessLevel;
