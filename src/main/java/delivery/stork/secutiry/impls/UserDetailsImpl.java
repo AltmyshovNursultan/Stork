@@ -2,6 +2,8 @@ package delivery.stork.secutiry.impls;
 
 import delivery.stork.model.entity.User;
 import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,15 +11,17 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Getter
+@Setter
 public class UserDetailsImpl implements UserDetails {
     Long id;
-    String userName;
+    String fullName;
     String email;
     String password;
 
-    public UserDetailsImpl(Long id, String userName, String email, String password) {
+    public UserDetailsImpl(Long id, String fullName, String email, String password) {
         this.id = id;
-        this.userName = userName;
+        this.fullName = fullName;
         this.email = email;
         this.password = password;
     }
@@ -25,7 +29,7 @@ public class UserDetailsImpl implements UserDetails {
         return new UserDetailsImpl(
                 user.getId(),
                 user.getEmail(),
-                user.getUserName(),
+                user.getFullName(),
                 user.getPassword()
         );
     }

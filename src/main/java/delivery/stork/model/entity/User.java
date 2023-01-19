@@ -3,6 +3,10 @@ package delivery.stork.model.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Setter
@@ -16,7 +20,16 @@ public class User {
     @Id
             @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    String userName;
+    @Column(name = "full_name",nullable = false)
+    String fullName;
+    @NonNull
     String email;
+    @NonNull
     String password;
+
+    int averageRate;
+    @NonNull
+    String instagram;
+    @CreationTimestamp
+    LocalDateTime createdAt;
 }

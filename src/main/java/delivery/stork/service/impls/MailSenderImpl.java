@@ -1,3 +1,23 @@
 package delivery.stork.service.impls;
-public class MailSenderImpl {
+
+import delivery.stork.service.MailSenderService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Service;
+
+@RequiredArgsConstructor
+@Service
+public class MailSenderImpl implements MailSenderService {
+    private final JavaMailSender javaMailSender;
+    private final String sender = "60.nursultan@gmail.com";
+    @Override
+    public void sendMessage(String toEmail, String subject, String text) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(sender);
+        message.setTo(toEmail);
+        message.setText(text);
+        message.setSubject(subject);
+        javaMailSender.send(message);
+    }
 }
