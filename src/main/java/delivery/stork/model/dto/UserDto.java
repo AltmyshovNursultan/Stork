@@ -14,6 +14,6 @@ public class UserDto {
     Long id;
     String fullName;
     String email;
-    int averageRate;
+    double averageRate;
     String instagram;
 }

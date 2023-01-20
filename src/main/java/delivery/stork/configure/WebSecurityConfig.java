@@ -26,7 +26,9 @@ public class WebSecurityConfig  {
     private final JwtAuthFilter authenticationJwtTokenFilter;
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()
+        http.csrf().disable()
+                .formLogin().disable()
+                .logout().disable()
                 .exceptionHandling().authenticationEntryPoint(authEntryPoint).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeHttpRequests()
