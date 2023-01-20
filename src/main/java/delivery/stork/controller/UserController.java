@@ -1,5 +1,6 @@
 package delivery.stork.controller;
 
+import delivery.stork.model.wrapper.LoginRequest;
 import delivery.stork.model.wrapper.RegisterRequest;
 import delivery.stork.model.wrapper.ResetPasswordRequest;
 import delivery.stork.service.UserService;
@@ -35,6 +36,10 @@ public class UserController {
                                            @Valid @RequestBody ResetPasswordRequest resetRequest) {
         userService.resetPassword(token, resetRequest);
         return ResponseEntity.ok("You password has been successfully reset");
+    }
+    @GetMapping("/login")
+    ResponseEntity<?> login(@Valid @RequestBody LoginRequest loginRequest){
+        return ResponseEntity.ok(userService.login(loginRequest));
     }
 
 }

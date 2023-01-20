@@ -27,7 +27,7 @@ public class User {
     @NonNull
     String password;
 
-    int averageRate;
+    double averageRate;
     @NonNull
     String instagram;
     @CreationTimestamp
