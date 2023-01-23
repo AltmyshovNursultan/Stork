@@ -32,4 +32,6 @@ public class User {
     String instagram;
     @CreationTimestamp
     LocalDateTime createdAt;
+    @OneToOne(mappedBy = "userTraveler")
+    Traveler traveler;
 }

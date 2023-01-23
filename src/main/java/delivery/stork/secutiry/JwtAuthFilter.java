@@ -1,5 +1,6 @@
 package delivery.stork.secutiry;
 
+import delivery.stork.secutiry.impls.UserDetailsServiceImpl;
 import delivery.stork.utils.JwtUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -20,16 +21,16 @@ import java.io.IOException;
 @Component
 @RequiredArgsConstructor
 public class JwtAuthFilter extends OncePerRequestFilter {
-    private final UserDetailsService userDetailsService;
+    private final UserDetailsServiceImpl userDetailsService;
     private final JwtUtil jwtUtil;
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request,@NonNull HttpServletResponse response,
                                     @NonNull FilterChain filterChain) throws ServletException, IOException {
        String jwtToken = parseJwt(request);
         if ((jwtToken != null) && jwtUtil.validateJwtToken(jwtToken)) {
-            String username = jwtUtil.extractEmail(jwtToken);
+            String email = jwtUtil.extractEmail(jwtToken);
 
-            UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+            UserDetails userDetails = userDetailsService.loadUserByUsername(email);
             UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
                     userDetails, null, null);
             authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));

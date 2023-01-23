@@ -41,7 +41,9 @@ public class PackageImpl implements PackageService {
 
     @Override
     public PackageDto editPackage(PackageRequest editPackage, User senderPackage) {
+        // Need to fix editPackage method
         Package updatePackage = packageMapper.toPackage(editPackage, senderPackage);
+        packageRepo.save(updatePackage);
         return packageMapper.toPackageDto(updatePackage);
     }
 
