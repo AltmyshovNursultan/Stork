@@ -7,6 +7,7 @@ import delivery.stork.model.dto.TravelerDto;
 import delivery.stork.model.entity.Traveler;
 import delivery.stork.model.entity.User;
 import delivery.stork.model.wrapper.ServiceRequest;
+import delivery.stork.model.wrapper.TravelingEditRequest;
 import delivery.stork.repository.TravelerRepo;
 import delivery.stork.service.TravelerService;
 import lombok.RequiredArgsConstructor;
@@ -42,6 +43,15 @@ public class TravelerServiceImpl implements TravelerService {
         List<Traveler> travelerList = travelerRepo.findAll();
         return ResponseEntity.ok(travelerList.stream().map(travelerMapper::toTravelerDto)
                 .collect(Collectors.toList()));
+    }
+
+    @Override
+    public TravelerDto updateTraveling(TravelingEditRequest travelingEditRequest, User traveler) {
+        Traveler traveling = travelerRepo.findTravelerByUserTraveler(traveler).orElseThrow(()->
+                new NotFoundException("No such a traveling with traveler " + traveler.getFullName() ));
+        Traveler updatedTraveling = travelerMapper.toTravelingFromEdit(travelingEditRequest,traveling);
+        travelerRepo.save(updatedTraveling);
+        return travelerMapper.toTravelerDto(updatedTraveling);
     }
 
 }

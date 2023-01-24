@@ -1,15 +1,19 @@
 package delivery.stork.controller;
 
+import delivery.stork.model.dto.UserDto;
+import delivery.stork.model.entity.User;
+import delivery.stork.model.wrapper.EditUserRequest;
 import delivery.stork.model.wrapper.LoginRequest;
 import delivery.stork.model.wrapper.RegisterRequest;
 import delivery.stork.model.wrapper.ResetPasswordRequest;
 import delivery.stork.service.UserService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.internet.AddressException;
+import javax.validation.Valid;
 
 @RestController
 @RequiredArgsConstructor
@@ -40,6 +44,11 @@ public class UserController {
     @GetMapping("/login")
     ResponseEntity<?> login(@Valid @RequestBody LoginRequest loginRequest){
         return ResponseEntity.ok(userService.login(loginRequest));
+    }
+    @PostMapping("/edit")
+    ResponseEntity<UserDto> editUser(@Valid @RequestBody EditUserRequest editUserRequest,
+                                     @AuthenticationPrincipal User user){
+        return ResponseEntity.ok(userService.updateUser(editUserRequest,user));
     }
 
 }

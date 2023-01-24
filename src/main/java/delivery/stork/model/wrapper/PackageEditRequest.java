@@ -1,23 +1,17 @@
-package delivery.stork.model.entity;
+package delivery.stork.model.wrapper;
 
-import lombok.*;
-import lombok.experimental.FieldDefaults;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
 import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Entity
-@Table(name = "packages")
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class Package {
-    @Id
-            @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+public class PackageEditRequest {
     @Column(name = "name_of_package", nullable = false)
     String nameOfPackage;
     @Column(name = "get_from", nullable = false)
@@ -32,9 +26,4 @@ public class Package {
     LocalDateTime deadline;
     @Column(name = "price", nullable = false)
     double price;
-    @ManyToOne
-            @JoinColumn(name = "user_sender_id")
-    @NonNull
-    User senderPackage;
-
 }

@@ -3,6 +3,8 @@ package delivery.stork.service;
 import delivery.stork.model.dto.JwtDto;
 import delivery.stork.model.dto.UserDto;
 import delivery.stork.model.entity.ResetPassword;
+import delivery.stork.model.entity.User;
+import delivery.stork.model.wrapper.EditUserRequest;
 import delivery.stork.model.wrapper.LoginRequest;
 import delivery.stork.model.wrapper.RegisterRequest;
 import delivery.stork.model.wrapper.ResetPasswordRequest;
@@ -17,4 +19,5 @@ public interface UserService {
     void resetPassword(String token, ResetPasswordRequest passwordRequest);
 
 
+    UserDto updateUser(EditUserRequest editUserRequest, User user);
 }

@@ -4,6 +4,7 @@ import delivery.stork.model.dto.TravelerDto;
 import delivery.stork.model.entity.Traveler;
 import delivery.stork.model.entity.User;
 import delivery.stork.model.wrapper.ServiceRequest;
+import delivery.stork.model.wrapper.TravelingEditRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -34,5 +35,15 @@ public class TravelerMapper {
                 .price(serviceTraveler.getPrice())
                 .userTravelerDto(userMapper.toUserDto(serviceTraveler.getUserTraveler()))
                 .build();
+    }
+
+    public Traveler toTravelingFromEdit(TravelingEditRequest travelingEditRequest, Traveler traveling) {
+        traveling.setGetFrom(travelingEditRequest.getGetFrom());
+        traveling.setGetTo(travelingEditRequest.getGetTo());
+        traveling.setPrice(travelingEditRequest.getPrice());
+        traveling.setCapacity(travelingEditRequest.getCapacity());
+        traveling.setFlightDate(travelingEditRequest.getFlightDate());
+        traveling.setArrivalDate(travelingEditRequest.getFlightDate());
+        return traveling;
     }
 }

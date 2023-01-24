@@ -2,6 +2,7 @@ package delivery.stork.controller;
 
 import delivery.stork.model.dto.PackageDto;
 import delivery.stork.model.entity.User;
+import delivery.stork.model.wrapper.PackageEditRequest;
 import delivery.stork.model.wrapper.PackageRequest;
 import delivery.stork.service.PackageService;
 import lombok.RequiredArgsConstructor;
@@ -27,7 +28,7 @@ public class PackageController {
         return ResponseEntity.ok("You successfully deleted package");
     }
     @PostMapping("/update")
-    ResponseEntity<PackageDto> editPackage(@RequestBody PackageRequest editPackage,
+    ResponseEntity<PackageDto> editPackage(@RequestBody PackageEditRequest editPackage,
                                            @AuthenticationPrincipal User senderPackage){
         return ResponseEntity.ok(packageService.editPackage(editPackage, senderPackage));
     }

@@ -6,7 +6,7 @@ import delivery.stork.mapper.PackageMapper;
 import delivery.stork.model.dto.PackageDto;
 import delivery.stork.model.entity.Package;
 import delivery.stork.model.entity.User;
-import delivery.stork.model.wrapper.EditPackage;
+import delivery.stork.model.wrapper.PackageEditRequest;
 import delivery.stork.model.wrapper.PackageRequest;
 import delivery.stork.repository.PackageRepo;
 import delivery.stork.repository.UserRepo;
@@ -40,9 +40,10 @@ public class PackageImpl implements PackageService {
     }
 
     @Override
-    public PackageDto editPackage(PackageRequest editPackage, User senderPackage) {
-        // Need to fix editPackage method
-        Package updatePackage = packageMapper.toPackage(editPackage, senderPackage);
+    public PackageDto editPackage(PackageEditRequest editPackage, User senderPackage) {
+        Package existsPackage = packageRepo.findPackageBySenderPackage(senderPackage).orElseThrow(()->
+                new NotFoundException("No such a package exist of this sender " + senderPackage.getFullName()));
+        Package updatePackage = packageMapper.toPackageFromEdit(editPackage, existsPackage);
         packageRepo.save(updatePackage);
         return packageMapper.toPackageDto(updatePackage);
     }

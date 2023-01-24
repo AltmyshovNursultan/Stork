@@ -1,14 +1,18 @@
 package delivery.stork.model.wrapper;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-@Data
-@Builder
+import javax.validation.constraints.NotBlank;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CommentRequest {
+    @NotBlank
     int rate;
+    @NotBlank
     String text;
 }

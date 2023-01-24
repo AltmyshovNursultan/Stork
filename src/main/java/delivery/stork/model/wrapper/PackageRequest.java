@@ -1,24 +1,34 @@
 package delivery.stork.model.wrapper;
 
 import delivery.stork.model.entity.User;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
-@Data
-@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class PackageRequest {
+    @NotBlank
     Long id;
+    @NotBlank
     String nameOfPackage;
+    @NotBlank
     String from;
+    @NotBlank
     String to;
+    @NotBlank
     double weight;
+    @NotBlank
     LocalDateTime startDate;
+    @NotBlank
     LocalDateTime deadline;
+    @NotBlank
     double price;
+    @NotBlank
     User senderPackage;
 }

@@ -3,6 +3,7 @@ package delivery.stork.mapper;
 import delivery.stork.model.dto.PackageDto;
 import delivery.stork.model.entity.Package;
 import delivery.stork.model.entity.User;
+import delivery.stork.model.wrapper.PackageEditRequest;
 import delivery.stork.model.wrapper.PackageRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -36,5 +37,16 @@ public class PackageMapper {
                 .deadline(newPackage.getDeadline())
                 .userDto(userMapper.toUserDto(newPackage.getSenderPackage()))
                 .build();
+    }
+
+    public Package toPackageFromEdit(PackageEditRequest editPackage, Package existsPackage) {
+        existsPackage.setFrom(editPackage.getFrom());
+        existsPackage.setTo(editPackage.getTo());
+        existsPackage.setPrice(editPackage.getPrice());
+        existsPackage.setNameOfPackage(editPackage.getNameOfPackage());
+        existsPackage.setDeadline(editPackage.getDeadline());
+        existsPackage.setWeight(editPackage.getWeight());
+        existsPackage.setStartDate(editPackage.getStartDate());
+        return existsPackage;
     }
 }
