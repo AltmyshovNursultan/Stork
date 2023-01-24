@@ -1,11 +1,10 @@
 package delivery.stork.model.entity;
 
-import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.data.annotation.CreatedDate;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -32,4 +31,6 @@ public class User {
     String instagram;
     @CreationTimestamp
     LocalDateTime createdAt;
+    @OneToOne(mappedBy = "userTraveler")
+    Traveler traveler;
 }

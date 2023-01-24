@@ -8,6 +8,7 @@ import delivery.stork.model.dto.UserDto;
 import delivery.stork.model.entity.ActivationToken;
 import delivery.stork.model.entity.ResetPassword;
 import delivery.stork.model.entity.User;
+import delivery.stork.model.wrapper.EditUserRequest;
 import delivery.stork.model.wrapper.LoginRequest;
 import delivery.stork.model.wrapper.RegisterRequest;
 import delivery.stork.model.wrapper.ResetPasswordRequest;
@@ -112,6 +113,14 @@ public class UserServiceImpl implements UserService {
         User user = resetPasswordToken.getUser();
         user.setPassword(passwordEncoder.encode(passwordRequest.getPassword()));
         resetPasswordRepo.delete(resetPasswordToken);
+    }
+
+    @Override
+    public UserDto updateUser(EditUserRequest editUserRequest, User user) {
+        editUserRequest.setPassword(passwordEncoder.encode(editUserRequest.getPassword()));
+        User updatedUser = userMapper.toUserFromEdit(editUserRequest, user);
+        userRepo.save(updatedUser);
+        return userMapper.toUserDto(updatedUser);
     }
 
     private boolean isTokenValid(LocalDateTime createdAt, long expiresInMinutes) {
