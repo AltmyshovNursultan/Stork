@@ -13,8 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class PackageRequest {
-    @NotBlank
-    Long id;
+
     @NotBlank
     String nameOfPackage;
     @NotBlank

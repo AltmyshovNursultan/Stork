@@ -1,4 +1,4 @@
-package delivery.stork.secutiry.impls;
+package delivery.stork.secutiry;
 
 import delivery.stork.model.entity.User;
 import delivery.stork.repository.UserRepo;
@@ -14,8 +14,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private final UserRepo userRepo;
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userRepo.findUserByEmail(email).orElseThrow(()->
-                new UsernameNotFoundException("No such user found with "+email +" email!"));
-        return UserDetailsImpl.build(user);
+        return userRepo.findUserByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("User with email " + email + " not found!"));
     }
 }

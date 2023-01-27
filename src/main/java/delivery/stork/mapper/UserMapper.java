@@ -7,7 +7,6 @@ import delivery.stork.model.entity.ResetPassword;
 import delivery.stork.model.entity.User;
 import delivery.stork.model.wrapper.EditUserRequest;
 import delivery.stork.model.wrapper.RegisterRequest;
-import delivery.stork.secutiry.impls.UserDetailsImpl;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -47,12 +46,12 @@ public class UserMapper {
                 .build();
     }
 
-    public JwtDto toJwtDto(UserDetailsImpl userPrincipal, String token) {
+    public JwtDto toJwtDto(User userPrincipal, String token) {
         return JwtDto.builder()
                 .id(userPrincipal.getId())
                 .tokenType("Bearer")
                 .accessToken(token)
-                .email(userPrincipal.getUsername())
+                .email(userPrincipal.getEmail())
                 .fullName(userPrincipal.getFullName())
                 .build();
     }

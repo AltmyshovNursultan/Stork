@@ -27,7 +27,7 @@ public class ReviewController {
         reviewService.deleteReview(id,userReviewAdder);
         return ResponseEntity.ok("You successfully delete review");
     }
-    @GetMapping("/reviewsofuser")
+    @GetMapping("/get")
     ResponseEntity<List<ReviewDto>> getReviewsOfUser(@RequestParam Long userReviewsId){
         return ResponseEntity.ok(reviewService.findReviewsOfUser(userReviewsId));
     }

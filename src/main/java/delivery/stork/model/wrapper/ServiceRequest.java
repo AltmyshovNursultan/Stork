@@ -18,10 +18,10 @@ public class ServiceRequest {
     @NotBlank
     String getTo;
     @NotBlank
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern="yyyy-MM-dd")
+
     LocalDateTime flightDate;
     @NotBlank
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern="yyyy-MM-dd")
+
     LocalDateTime arrivalDate;
     @NotBlank
     double capacity;
