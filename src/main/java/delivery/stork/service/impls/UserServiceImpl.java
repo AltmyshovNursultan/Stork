@@ -15,7 +15,6 @@ import delivery.stork.model.wrapper.ResetPasswordRequest;
 import delivery.stork.repository.ActivationTokenRepo;
 import delivery.stork.repository.ResetPasswordRepo;
 import delivery.stork.repository.UserRepo;
-import delivery.stork.secutiry.impls.UserDetailsImpl;
 import delivery.stork.service.MailSenderService;
 import delivery.stork.service.UserService;
 import delivery.stork.utils.JwtUtil;
@@ -86,7 +85,7 @@ public class UserServiceImpl implements UserService {
         Authentication authentication = authenticate(loginRequest);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = jwtUtil.generateToken(authentication);
-        UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
+        User userPrincipal = (User) authentication.getPrincipal();
         return userMapper.toJwtDto(userPrincipal,token);
 
     }

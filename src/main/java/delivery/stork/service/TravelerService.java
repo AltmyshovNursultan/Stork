@@ -2,6 +2,7 @@ package delivery.stork.service;
 
 import delivery.stork.model.dto.TravelerDto;
 import delivery.stork.model.entity.User;
+import delivery.stork.model.wrapper.SearchRequest;
 import delivery.stork.model.wrapper.ServiceRequest;
 import delivery.stork.model.wrapper.TravelingEditRequest;
 import org.springframework.http.ResponseEntity;
@@ -15,5 +16,7 @@ public interface TravelerService {
 
     ResponseEntity<List<TravelerDto>> getTravelingServices();
 
-    TravelerDto updateTraveling(TravelingEditRequest traveleingEditRequest, User traveler);
+    TravelerDto updateTraveling(Long id,TravelingEditRequest traveleingEditRequest, User traveler);
+
+    List<TravelerDto> searchTraveling(SearchRequest searchRequest);
 }

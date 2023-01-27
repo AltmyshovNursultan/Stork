@@ -1,6 +1,6 @@
 package delivery.stork.utils;
 
-import delivery.stork.secutiry.impls.UserDetailsImpl;
+import delivery.stork.model.entity.User;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
@@ -24,9 +24,9 @@ public class JwtUtil {
     private long expiration;
 
     public String generateToken(Authentication authentication){
-        UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
+        User user = (User) authentication.getPrincipal();
         return Jwts.builder()
-                .setSubject(userPrincipal.getUsername())
+                .setSubject(user.getEmail())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis()+expiration))
                 .signWith(Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8)))

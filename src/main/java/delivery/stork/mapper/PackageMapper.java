@@ -15,9 +15,9 @@ public class PackageMapper {
     public Package toPackage(PackageRequest packageRequest, User senderPackage) {
         return Package.builder()
                 .nameOfPackage(packageRequest.getNameOfPackage())
-                .id(packageRequest.getId())
                 .to(packageRequest.getTo())
                 .from(packageRequest.getFrom())
+                .price(packageRequest.getPrice())
                 .weight(packageRequest.getWeight())
                 .startDate(packageRequest.getStartDate())
                 .deadline(packageRequest.getDeadline())

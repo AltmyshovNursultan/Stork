@@ -13,18 +13,17 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class TravelingEditRequest {
-    @NotBlank
+    @NonNull
     String getFrom;
-    @NotBlank
+    @NonNull
     String getTo;
-    @NotBlank
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @NonNull
+
     LocalDateTime flightDate;
-    @NotBlank
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @NonNull
     LocalDateTime arrivalDate;
-    @NotBlank
+    @NonNull
     double capacity;
-    @NotBlank
+    @NonNull
     double price;
 }

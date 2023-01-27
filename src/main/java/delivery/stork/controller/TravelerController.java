@@ -2,6 +2,7 @@ package delivery.stork.controller;
 
 import delivery.stork.model.dto.TravelerDto;
 import delivery.stork.model.entity.User;
+import delivery.stork.model.wrapper.SearchRequest;
 import delivery.stork.model.wrapper.ServiceRequest;
 import delivery.stork.model.wrapper.TravelingEditRequest;
 import delivery.stork.service.TravelerService;
@@ -33,8 +34,12 @@ public class TravelerController {
         return travelerService.getTravelingServices();
     }
     @PostMapping("/edit")
-    ResponseEntity<TravelerDto> editTraveling (@Valid @RequestBody TravelingEditRequest traveleingEditRequest,
+    ResponseEntity<TravelerDto> editTraveling (@RequestParam Long id,@Valid @RequestBody TravelingEditRequest traveleingEditRequest,
                                                @AuthenticationPrincipal User traveler){
-        return ResponseEntity.ok(travelerService.updateTraveling(traveleingEditRequest,traveler));
+        return ResponseEntity.ok(travelerService.updateTraveling(id,traveleingEditRequest,traveler));
+    }
+    @GetMapping("/search")
+    ResponseEntity<List<TravelerDto>> searchTraveling(@RequestBody SearchRequest searchRequest){
+        return ResponseEntity.ok(travelerService.searchTraveling(searchRequest));
     }
 }

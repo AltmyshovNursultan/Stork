@@ -27,7 +27,7 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public void deleteReview(Long id, User user) {
         Review review = findReviewById(id);
-        if (!review.getUserReviewAdder().equals(user)){
+        if (!review.getUserReviewAdder().getId().equals(user.getId())){
             throw new NotAllowedException("You are allowed to delete other's review");
         }
         reviewRepo.delete(review);
@@ -41,6 +41,7 @@ public class ReviewServiceImpl implements ReviewService {
         reviewRepo.save(review);
         double averageRate = countAverageRate(userReviewGet);
         userReviewGet.setAverageRate(averageRate);
+        userRepo.save(userReviewGet);
     }
 
     @Override
@@ -55,8 +56,8 @@ public class ReviewServiceImpl implements ReviewService {
     private double  countAverageRate(User userReviewGet){
         List<Review> getListOfReviewByGetter = reviewRepo.findReviewsByUserReview(userReviewGet);
         double result =0;
-        for (int i = 0 ; i < getListOfReviewByGetter.size(); i++ ){
-            result += getListOfReviewByGetter.get(i).getRate();
+        for (Review review : getListOfReviewByGetter) {
+            result += review.getRate();
         }
         return result;
     }

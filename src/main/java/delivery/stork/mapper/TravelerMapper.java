@@ -1,7 +1,7 @@
 package delivery.stork.mapper;
 
 import delivery.stork.model.dto.TravelerDto;
-import delivery.stork.model.entity.Traveler;
+import delivery.stork.model.entity.Traveling;
 import delivery.stork.model.entity.User;
 import delivery.stork.model.wrapper.ServiceRequest;
 import delivery.stork.model.wrapper.TravelingEditRequest;
@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class TravelerMapper {
     private final UserMapper userMapper;
-    public Traveler toTraveler(ServiceRequest serviceRequest, User userTraveler) {
-        return  Traveler.builder()
+    public Traveling toTraveler(ServiceRequest serviceRequest, User userTraveler) {
+        return  Traveling.builder()
                 .getFrom(serviceRequest.getGetFrom())
                 .getTo(serviceRequest.getGetTo())
                 .flightDate(serviceRequest.getFlightDate())
@@ -24,7 +24,7 @@ public class TravelerMapper {
                 .build();
     }
 
-    public TravelerDto toTravelerDto(Traveler serviceTraveler) {
+    public TravelerDto toTravelerDto(Traveling serviceTraveler) {
         return  TravelerDto.builder()
                 .id(serviceTraveler.getId())
                 .getFrom(serviceTraveler.getGetFrom())
@@ -37,7 +37,7 @@ public class TravelerMapper {
                 .build();
     }
 
-    public Traveler toTravelingFromEdit(TravelingEditRequest travelingEditRequest, Traveler traveling) {
+    public Traveling toTravelingFromEdit(TravelingEditRequest travelingEditRequest, Traveling traveling) {
         traveling.setGetFrom(travelingEditRequest.getGetFrom());
         traveling.setGetTo(travelingEditRequest.getGetTo());
         traveling.setPrice(travelingEditRequest.getPrice());

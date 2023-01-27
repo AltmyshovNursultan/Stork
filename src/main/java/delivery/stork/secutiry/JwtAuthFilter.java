@@ -1,6 +1,5 @@
 package delivery.stork.secutiry;
 
-import delivery.stork.secutiry.impls.UserDetailsServiceImpl;
 import delivery.stork.utils.JwtUtil;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
