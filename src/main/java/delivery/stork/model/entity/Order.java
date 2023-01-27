@@ -1,6 +1,5 @@
 package delivery.stork.model.entity;
 
-import delivery.stork.model.enums.StatusOrder;
 import lombok.*;
 
 import javax.persistence.*;
@@ -20,7 +19,9 @@ public class Order {
             @JoinColumn(name = "traveler_id")
     Traveling traveling;
     @OneToOne
-    Package aPackage;
-    @Enumerated(EnumType.STRING)
-    StatusOrder statusOrder;
+    Package packages;
+    @ManyToOne
+    User sender;
+    @ManyToOne
+    Status status;
 }
