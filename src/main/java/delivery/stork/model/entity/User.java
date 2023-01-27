@@ -36,6 +36,7 @@ public class User implements UserDetails {
     @OneToOne(mappedBy = "userTraveler")
     Traveling traveler;
 
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
