@@ -13,11 +13,11 @@ After registration user will receive a link to activate the account.
 
 #### How to pick up some package?
 The user has two options to find a packet.
-1. Posts flight the information below on board. 
-From where to where, departure and arrival time.
-How many kg user can take and the proposed price
+1. Posts flight the information below on board.             
+From where to where, departure and arrival time.         
+How many kg user can take and the proposed price      
 
-2. Users can search posted packages on board 
+2. Users can search posted packages on board      
 by entering origin, destination, and dates.
 
 #### How to send package?
