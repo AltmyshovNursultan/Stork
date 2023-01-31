@@ -8,7 +8,7 @@ who want to send packets to some country or city.
 ### How does it work?
 
 #### Registration:
-User input full name, email, and social media addresses.
+User input full name, email, and social media addresses.                                                                                            
 After registration user will receive a link to activate the account.
 
 #### How to pick up some package?
@@ -29,12 +29,12 @@ by entering the origin, destination, and deadline for the delivery.
 Package name, weight, origin, destination, dates, and proposal price.
 
 #### Technologies and tools
-Java 
-Spring boot 
-Postgre SQL
-Spring security 
-JWT Token
-Git Hub
-Docker 
-GitHub Actions (CI)
++Java 
++Spring boot 
++Postgre SQL
++Spring security 
++JWT Token
++Git Hub
++Docker 
++GitHub Actions (CI)
 
