@@ -1,8 +1,8 @@
 # Stork
-What was the Stork project created? 
-This website was created to help people deliver small packages across 
-the world cheaply and safely via travelers and this is an excellent way to earn a 
-little extra money for travelers. The Stork connects travelers who can pick up some packages and 
+What was the Stork project created?   
+This website was created to help people deliver small packages across              
+the world cheaply and safely via travelers and this is an excellent way to earn a            
+little extra money for travelers. The Stork connects travelers who can pick up some packages and             
 who want to send packets to some country or city.
 
 ### How does it work?
