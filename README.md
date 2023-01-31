@@ -25,7 +25,7 @@ The user has two options to send a package.
 1. User is able to search available travelers on the search board  
 by entering the origin, destination, and deadline for the delivery.
 
-2. Post the package with the information below on the board.
+2. Post the package with the information below on the board.                    
 Package name, weight, origin, destination, dates, and proposal price.
 
 #### Technologies and tools
