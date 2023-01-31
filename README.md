@@ -5,7 +5,7 @@ the world cheaply and safely via travelers and this is an excellent way to earn 
 little extra money for travelers. The Stork connects travelers who can pick up some packages and 
 who want to send packets to some country or city.
 
-How does it work?
+#### How does it work?
 
 ## Registration:
 User input full name, email, and social media addresses.
