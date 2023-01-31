@@ -29,12 +29,12 @@ by entering the origin, destination, and deadline for the delivery.
 Package name, weight, origin, destination, dates, and proposal price.
 
 #### Technologies and tools
-+Java 
-+Spring boot 
-+Postgre SQL
-+Spring security 
-+JWT Token
-+Git Hub
-+Docker 
-+GitHub Actions (CI)
++ Java 
++ Spring boot 
++ Postgre SQL
++ Spring security 
++ JWT Token
++ Git Hub
++ Docker 
++ GitHub Actions (CI)
 
