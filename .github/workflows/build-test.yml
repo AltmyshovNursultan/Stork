@@ -15,10 +15,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-
-  build:
-
-    runs-on: ubuntu-latest
+  container-job:
     services:
       # Label used to access the service container
       postgres:
@@ -61,6 +58,10 @@ jobs:
 
             # The default PostgreSQL port
             POSTGRES_PORT: 5432
+
+  build:
+
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
