@@ -28,6 +28,8 @@ by entering the origin, destination, and deadline for the delivery.
 2. Post the package with the information below on the board.                    
 Package name, weight, origin, destination, dates, and proposal price.
 
+User is able to add review for travelers who prodived service.
+
 #### Technologies and tools
 + Java 
 + Spring boot 
