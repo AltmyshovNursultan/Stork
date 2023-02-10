@@ -28,7 +28,8 @@ by entering the origin, destination, and deadline for the delivery.
 2. Post the package with the information below on the board.                    
 Package name, weight, origin, destination, dates, and proposal price.
 
-User is able to add review for travelers who prodived service.
+User is able to leave a review and assess 1-5 rate for travelers who prodived service.
+Additionally all users can see average rates each other.
 
 #### Technologies and tools
 + Java 
